@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Servlet implementation class ManterPaisController
+ */
 @WebServlet("/ManterPais.do")
 public class ManterPaisController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,29 +27,25 @@ public class ManterPaisController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pNomePais = request.getParameter("nome");
-		String pPopulacaoPais = request.getParameter("populacao");
-		String pAreaPais = request.getParameter("area");
+		String pNomePais = request.getParameter("nomePais");
+		long pPopulacaoPais = Long.parseLong(request.getParameter("populacaoPais"));
+		double pAreaPais = Double.parseDouble(request.getParameter("areaPais"));
 		
-		//instanciar o javabean
 		Pais pais = new Pais();
 		pais.setNomePais(pNomePais);
 		pais.setPopulacaoPais(pPopulacaoPais);
 		pais.setAreaPais(pAreaPais);
 		
-		//instanciar o service
 		PaisService cs = new PaisService();
-		cs.criar(pais);
-		pais = cs.carregar(pais.getIdPais());
+		int idPais = cs.criar(pais);
+		pais = cs.carregar(idPais);
 		
 		PrintWriter out = response.getWriter();
-		out.println("<html><head><title>Pais Cadastrado</title></head><body>");
-		out.println(	"id: "+pais.getIdPais()+"<br>");
-		out.println(	"nome: "+pais.getNomePais()+"<br>");
-		out.println(	"população: "+pais.getPopulacaoPais()+"<br>");
-		out.println(	"area: "+pais.getAreaPais()+"<br>");
+		out.println("<html><head><title>Cliente Cadastrado</title></head><body>");
+		out.println(	"Id: "+pais.getIdPais()+"<br>");
+		out.println(	"Nome: "+pais.getNomePais()+"<br>");
+		out.println(	"População: "+pais.getPopulacaoPais()+"<br>");
+		out.println(	"Área: "+pais.getAreaPais()+"<br>");
 	    out.println("</body></html>");
-		
 	}
-
 }

@@ -11,11 +11,9 @@ public class ConnectionFactory {
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
-	}
-	
+	}	
 	public static Connection obtemConexao() throws SQLException {
 		return DriverManager
 				.getConnection("jdbc:mysql://localhost:3306/vendas?useTimezone=true&serverTimezone=America/Sao_Paulo&user=root&password=fluminense");
 	}
-
 }

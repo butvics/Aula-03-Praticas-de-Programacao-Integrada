@@ -5,9 +5,24 @@ public class Pais {
 	public String nomePais;
 	public long populacaoPais;
 	public double areaPais;
-
-	public Pais() {
+	
+	
+public Pais() {
+		
 	}
+	
+	public Pais(String nomePais, long populacaoPais, double areaPais) {
+		this.nomePais = nomePais;
+		this.populacaoPais = populacaoPais;
+		this.areaPais = areaPais;
+	}
+	
+	public Pais(int idPais, String nomePais, long populacaoPais, double areaPais) {
+		Pais.idPais = idPais;
+		this.nomePais = nomePais;
+		this.populacaoPais = populacaoPais;
+		this.areaPais = areaPais;
+	}	
 
 	@Override
 	public String toString() {
@@ -15,19 +30,12 @@ public class Pais {
 				+ areaPais + "]";
 	}
 
-	public Pais(int idPais, String nomePais, long populacaoPais, double areaPais) {
-		//this.idPais = idPais;
-		this.nomePais = nomePais;
-		this.populacaoPais = populacaoPais;
-		this.areaPais = areaPais;
-	}
-
-	public static int getIdPais() {
+	public int getIdPais() {
 		return idPais;
 	}
 
-	public static void setIdPais(int idPais) {
-		
+	public void setIdPais(int idPais) {
+		Pais.idPais= idPais;
 	}
 
 	public String getNomePais() {
@@ -52,11 +60,5 @@ public class Pais {
 
 	public void setAreaPais(double areaPais) {
 		this.areaPais = areaPais;
-	}
-
-	public void setPopulacaoPais(String pPopulacaoPais) {
-	}
-
-	public void setAreaPais(String pAreaPais) {
 	}
 }
