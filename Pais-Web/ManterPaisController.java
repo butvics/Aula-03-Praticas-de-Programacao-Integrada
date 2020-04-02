@@ -47,5 +47,6 @@ public class ManterPaisController extends HttpServlet {
 		out.println(	"População: "+pais.getPopulacaoPais()+"<br>");
 		out.println(	"Área: "+pais.getAreaPais()+"<br>");
 	    out.println("</body></html>");
+		
 	}
 }

@@ -1,7 +1,7 @@
 package br.usjt.OO;
 
 public class Pais {
-	public static int idPais;
+	public int idPais;
 	public String nomePais;
 	public long populacaoPais;
 	public double areaPais;
@@ -18,7 +18,7 @@ public Pais() {
 	}
 	
 	public Pais(int idPais, String nomePais, long populacaoPais, double areaPais) {
-		Pais.idPais = idPais;
+		this.idPais = idPais;
 		this.nomePais = nomePais;
 		this.populacaoPais = populacaoPais;
 		this.areaPais = areaPais;
@@ -35,7 +35,7 @@ public Pais() {
 	}
 
 	public void setIdPais(int idPais) {
-		Pais.idPais= idPais;
+		this.idPais= idPais;
 	}
 
 	public String getNomePais() {

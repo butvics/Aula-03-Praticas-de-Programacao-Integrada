@@ -16,7 +16,7 @@ public class PaisService {
 	}
 
 	public int criar(Pais pais) {
-		return PaisDAO.criar(null, 0, 0);
+		return PaisDAO.criar(pais.getNomePais(), pais.getPopulacaoPais(), pais.getAreaPais());
 	}
 
 	public void atualizar(Pais pais){

@@ -20,6 +20,9 @@ public class PaisDAO {
 			String sqlQuery = "SELECT LAST_INSERT_ID()";
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
 					ResultSet rs = stm2.executeQuery();) {
+				if (rs.next()) {
+					idPais = rs.getInt(1);
+				}			
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -55,7 +58,6 @@ public class PaisDAO {
 	public static Pais carregar(int idPais) {
 		Pais pais = null;
 		String sqlSelect = "SELECT nomePais, populacaoPais, areaPais FROM pais WHERE idPais = ?";
-		// usando o try with resources do Java 7, quefecha o queabriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 			stm.setInt(1, idPais);
